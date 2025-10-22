@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Instagram Bio Link Page Generator (Link in Bio Tool)</title>
+<style>
+
+body {
+  background-color: #ffffff;
+  color: #2563eb;
+  font-family: Arial, sans-serif;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.container {
+  padding: 1.5rem;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 100%;
+  margin: 1rem auto;
+  box-shadow: 0 0 8px rgba(0,0,0,0.08);
+  background-color: #ffffff;
+}
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.tools-grid { display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:1rem; }
+.tool-card { border:2px solid #e6eefc; padding:1rem; border-radius:10px; text-align:center; }
+.tool-button { display:inline-block; margin-top:0.75rem; padding:0.5rem 0.8rem; background:#2563eb; color:#fff; text-decoration:none; border-radius:8px; }
+.small-note { font-size:0.9rem; color:#334155; }
+
+a { color: #0b5ed7; }
+.header { text-align:center; margin-bottom:1rem; }
+.label { font-weight:600; margin-top:0.5rem; }
+.input, textarea { width:100%; padding:0.6rem; margin-top:0.5rem; border:1px solid #cfe2ff; border-radius:8px; }
+.result-box { margin-top:1rem; padding:0.8rem; border-radius:8px; background:#f8fafc; border:1px dashed #e2e8f0; }
+</style>
+</head>
+<body>
+<div class="container header">
+  <h1>Instagram Bio Link Page Generator (Link in Bio Tool)</h1>
+  <p class="small-note">A demo page for the Instagram Bio Link Page Generator (Link in Bio Tool). Use the input below to simulate the tool.</p>
+  <p class="small-note">This page contains lightweight demo logic (placeholder) to simulate the tool behavior.</p>
+</div>
+
+<div class="container">
+  <label class="label">Input</label>
+  <textarea id="inputText" class="input" rows="4" placeholder="Enter text, URL, or input for the tool..."></textarea>
+  <button class="tool-button" onclick="runTool()">Run</button>
+  <div id="result" class="result-box">Result will appear here after running the tool.</div>
+  <p class="small-note">Note: For demo purposes this tool simulates behavior client-side.</p>
+  <p><a href="index.html" class="tool-button" style="background:#475569;">Back to Tools</a></p>
+</div>
+
+<script>
+function runTool(){
+  const title = "Instagram Bio Link Page Generator (Link in Bio Tool)";
+  const input = document.getElementById('inputText').value.trim();
+  const resultDiv = document.getElementById('result');
+  if(!input){
+    resultDiv.innerText = 'Please enter input to simulate the tool action.';
+    return;
+  }
+  if(title.toLowerCase().includes('caption')){
+    resultDiv.innerText = 'Generated Caption: ' + input + ' ✨ #instagram #demo';
+  } else if(title.toLowerCase().includes('hashtag')){
+    const words = input.split(/\s+/).slice(0,6);
+    resultDiv.innerText = 'Suggested Hashtags: ' + words.map(w=>('#'+w.replace(/[^a-z0-9]/gi,'').toLowerCase())).join(' ');
+  } else if(title.toLowerCase().includes('bio')){
+    resultDiv.innerText = 'Bio Idea: ' + input + ' | passionate creator • contact: @yourhandle';
+  } else if(title.toLowerCase().includes('downloader') || title.toLowerCase().includes('download')){
+    resultDiv.innerHTML = 'Simulated download link: <a href="#">Download (demo)</a>';
+  } else if(title.toLowerCase().includes('analy') || title.toLowerCase().includes('analytics')){
+    resultDiv.innerText = 'Sample Analytics: impressions=1234, reach=890, engagement=12%';
+  } else if(title.toLowerCase().includes('extract') || title.toLowerCase().includes('extractor')){
+    resultDiv.innerText = 'Extracted sample data: {"id":12345, "username":"demo_user"}';
+  } else if(title.toLowerCase().includes('scheduler') || title.toLowerCase().includes('calendar')){
+    resultDiv.innerText = 'Sample scheduled post at: ' + new Date().toLocaleString();
+  } else {
+    resultDiv.innerText = 'Simulated output for ' + title + ': ' + input;
+  }
+}
+</script>
+</body>
+</html>
